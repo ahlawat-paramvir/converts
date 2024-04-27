@@ -1,3 +1,4 @@
+## most of this one is from Simon Batzner's one, adated a bit here and there
 import numpy as np
 
 from ase import Atoms
@@ -5,7 +6,7 @@ from ase.io import write
 from ase.calculators.singlepoint import SinglePointCalculator
 
 # read in npz file
-in_filename = 'ABW.npz'
+in_filename = 'any.npz'
 out_filename = 'nequip-data.extxyz'
 data = np.load(in_filename)
 
@@ -25,9 +26,8 @@ for idx in range(len(positions)):
     positions=positions[idx],
     # set cell in case it exists
     cell=cells[idx],
-    # set chemical symbols / species
+    # set chemica species, either by symbols or numbers
     numbers=data['numbers'], 
-    # assuming data with periodic boundary conditions, set to false for e.g. for molecules in vacuum
     pbc=True
   )
   
